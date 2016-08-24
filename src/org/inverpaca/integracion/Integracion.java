@@ -67,7 +67,7 @@ public class Integracion extends Conecciones {
               //    getUrl(), getUsuario(), getClave());
             String query = "INSERT INTO BIAUDIT VALUES ('" + fecha + "','" + detfaz + "','" + estatus + "','" + area + "',TO_DATE('" + fechadia + "','dd/MM/yyyy'),'1')";
             pstmt = con.prepareStatement(query);
-            System.out.println(query);
+            //System.out.println(query);
             try {
                 //Avisando
                 pstmt.executeUpdate();
@@ -130,7 +130,7 @@ public class Integracion extends Conecciones {
 					   query += "                                                               TSPAT.SPRAS = 'S' ";
 					   query += "WHERE "; 
 					   query += "MARA.MANDT = '400' ";
-					   //query += "AND MARA.MATNR IN ('000000000010102056','000000000010102057','000000000010102058') ";
+					   query += "AND MARA.MATNR BETWEEN '000000000010000000' AND '000000000026999999' ";
 					   query += "ORDER BY ";
 					   query += "MARA.MANDT,  ";
 					   query += "MARA.MATNR ";
@@ -228,15 +228,15 @@ public class Integracion extends Conecciones {
 				+ "'" + tabla[i][1] + "', "
 				+ "'" + tabla[i][2].replace("'", "") + "', "
 				+ "'" + tabla[i][3].replace("'", "") + "', "
-				+ "'" + tabla[i][4] + "', "
-				+ "'" + tabla[i][5] + "', "
-				+ "'" + tabla[i][6] + "', "
+				+ "'" + tabla[i][4].replace("'", "") + "', " 
+				+ "'" + tabla[i][5].replace("'", "") + "', " 
+				+ "'" + tabla[i][6].replace("'", "") + "', " 
 				+ tabla[i][7] + ", "
 				+ tabla[i][8] + ", "
-				+ "'" + tabla[i][9] + "', "
-				+ "'" + tabla[i][10] + "', "
-				+ "'" + tabla[i][11] + "', "
-				+ "'" + tabla[i][12] + "')";
+				+ "'" + tabla[i][9].replace("'", "") + "', " 
+				+ "'" + tabla[i][10].replace("'", "") + "', "
+				+ "'" + tabla[i][11].replace("'", "") + "', "
+				+ "'" + tabla[i][12].replace("'", "") + "')";
 				
 
         
